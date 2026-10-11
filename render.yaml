@@ -14,10 +14,8 @@ services:
       - key: JWT_EXPIRATION_MS
         value: "86400000"
 
-  - type: web
+  - type: static
     name: smart-canteen-frontend
-    runtime: static
-    plan: free
     buildCommand: npm ci --prefix frontend && npm run build --prefix frontend
     staticPublishPath: ./frontend/dist
     envVars:
