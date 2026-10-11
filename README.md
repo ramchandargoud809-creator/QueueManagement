@@ -132,6 +132,17 @@ Frontend runs at: **`http://localhost:5173`**
 
 ---
 
+## 🚀 Deploy to Render
+
+1. Push this repository to GitHub and create a MongoDB Atlas database. Allow connections from Render and copy the Atlas connection URI.
+2. In Render, choose **New → Blueprint**, connect this GitHub repository, and deploy the `render.yaml` Blueprint.
+3. When prompted, set `MONGODB_URI` to the Atlas connection URI. Render generates a secure `JWT_SECRET` for the backend.
+4. Wait for both services to finish deploying. Render provides separate public URLs for the frontend and API; the Blueprint connects the frontend API and WebSocket requests to the backend.
+
+The backend uses the included root `Dockerfile`. The frontend is deployed as a static Vite site with SPA route rewrites. The included payment settings are demo/test defaults; configure real payment credentials in the backend service environment before accepting real payments.
+
+---
+
 ## 🔄 Core End-to-End User Flow
 
 ```

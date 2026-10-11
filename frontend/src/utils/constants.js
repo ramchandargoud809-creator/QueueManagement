@@ -1,5 +1,9 @@
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
-export const WS_URL = import.meta.env.VITE_WS_URL || '/ws';
+const backendOrigin = import.meta.env.VITE_BACKEND_URL
+  ? `${import.meta.env.VITE_BACKEND_URL.startsWith('http') ? '' : 'https://'}${import.meta.env.VITE_BACKEND_URL}`.replace(/\/$/, '')
+  : '';
+
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || (backendOrigin ? `${backendOrigin}/api` : '/api');
+export const WS_URL = import.meta.env.VITE_WS_URL || (backendOrigin ? `${backendOrigin}/ws` : '/ws');
 export const RAZORPAY_KEY_ID = import.meta.env.VITE_RAZORPAY_KEY_ID || 'rzp_test_college_canteen_dummy_key';
 export const CANTEEN_NAME = import.meta.env.VITE_CANTEEN_NAME || 'Apex University Central Canteen';
 

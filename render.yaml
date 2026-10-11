@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: smart-canteen-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/foods
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRATION_MS
+        value: "86400000"
+
+  - type: web
+    name: smart-canteen-frontend
+    runtime: static
+    plan: free
+    buildCommand: npm ci --prefix frontend && npm run build --prefix frontend
+    staticPublishPath: ./frontend/dist
+    envVars:
+      - key: VITE_BACKEND_URL
+        fromService:
+          type: web
+          name: smart-canteen-api
+          property: host
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
