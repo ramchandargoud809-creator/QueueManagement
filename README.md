@@ -89,7 +89,7 @@ mongod --dbpath <path-to-data-folder>
 2. (Optional) Configure environment variables in `backend/src/main/resources/application.yml` or create `.env`:
    ```properties
    MONGODB_URI=mongodb://localhost:27017/smart_canteen
-   JWT_SECRET=404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+   JWT_SECRET=VGhpc0lzQVNlY3JldEtleUZvclNtYXJ0Q2FudGVlbkJhY2tlbmQxMjM0NTY3ODkw
    RAZORPAY_KEY_ID=rzp_test_college_canteen_dummy_key
    RAZORPAY_KEY_SECRET=rzp_test_secret_demo_12345
    ```

@@ -50,7 +50,7 @@ class AuthServiceTest {
     void setUp() {
         studentUser = User.builder()
                 .id("user-101")
-                .name("Soujith G")
+                .name("Chandu G")
                 .email("student@canteen.com")
                 .password("encoded_pass")
                 .role(Role.STUDENT)
@@ -63,7 +63,7 @@ class AuthServiceTest {
     @DisplayName("Should successfully register new user and return JWT token")
     void testRegisterSuccess() {
         RegisterRequest request = RegisterRequest.builder()
-                .name("Soujith G")
+                .name("Chandu G")
                 .email("student@canteen.com")
                 .password("password123")
                 .role(Role.STUDENT)
@@ -89,7 +89,7 @@ class AuthServiceTest {
     @DisplayName("Should reject registration if email already exists")
     void testRegisterDuplicateEmail() {
         RegisterRequest request = RegisterRequest.builder()
-                .name("Soujith G")
+                .name("Chandu G")
                 .email("student@canteen.com")
                 .password("password123")
                 .role(Role.STUDENT)
@@ -116,6 +116,6 @@ class AuthServiceTest {
 
         assertNotNull(response);
         assertEquals("mock_jwt_token", response.getToken());
-        assertEquals("Soujith G", response.getName());
+        assertEquals("Chandu G", response.getName());
     }
 }

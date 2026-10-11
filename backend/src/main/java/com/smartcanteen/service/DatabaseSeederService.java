@@ -103,7 +103,7 @@ public class DatabaseSeederService implements CommandLineRunner {
         createOrUpdateUser("faculty@canteen.com", "Dr. Vikram Seth (Faculty)", "password123", Role.FACULTY, "FAC-EC-102", "Electronics & Comm");
         
         createOrUpdateUser("student@campus.edu", "Rahul Verma (Student)", "Student@123", Role.STUDENT, "STU-2026-881", "Information Technology");
-        createOrUpdateUser("student@canteen.com", "Soujith Goudampally (Student)", "password123", Role.STUDENT, "STU-2026-900", "Computer Science");
+        createOrUpdateUser("student@canteen.com", "Chandu Goud (Student)", "password123", Role.STUDENT, "STU-2026-900", "Computer Science");
         log.info("Verified all demo accounts for Customer, Canteen Admin, Super Admin, Faculty, Student");
     }
 
@@ -122,6 +122,7 @@ public class DatabaseSeederService implements CommandLineRunner {
                     .build();
             userRepository.save(user);
         } else {
+            user.setName(name);
             user.setPassword(passwordEncoder.encode(rawPassword));
             user.setActive(true);
             userRepository.save(user);

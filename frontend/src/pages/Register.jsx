@@ -37,7 +37,7 @@ export default function Register() {
 
       navigate('/');
     } catch (err) {
-      setError(err.response?.data?.message || 'Registration failed. Please check your information.');
+      setError(err.message || 'Registration failed. Please check your information.');
     } finally {
       setLoading(false);
     }
@@ -104,7 +104,7 @@ export default function Register() {
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder="Soujith Goudampally"
+                placeholder="Chandu Goud"
                 className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-slate-950 border border-slate-800 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-orange-500"
               />
             </div>
@@ -119,7 +119,7 @@ export default function Register() {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                placeholder="soujith@college.edu"
+                placeholder="chandu@college.edu"
                 className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-slate-950 border border-slate-800 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-orange-500"
               />
             </div>
